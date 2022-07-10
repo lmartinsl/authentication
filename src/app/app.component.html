@@ -1,0 +1,15 @@
+<mat-toolbar class="toolbar" color="primary">
+  <span>My App</span>
+  <div class="routers">
+    <button mat-icon-button routerLink="/main/people">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/main/products">
+      <mat-icon>shop</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

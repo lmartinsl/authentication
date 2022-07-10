@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>People</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="(people$ | async)?.length > 0; else noperson">
+      <p>
+        Person selected: {{ people.selectedOptions.selected[0]?.value.name }}
+      </p>
+
+      <mat-selection-list #people [multiple]="false">
+        <mat-list-option
+          *ngFor="let person of people$ | async"
+          [value]="person"
+        >
+          {{ person.name }} | {{ person.company }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #noperson>
+  <mat-card>No Person found!</mat-card>
+</ng-template>

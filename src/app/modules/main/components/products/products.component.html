@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Products</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="(products$ | async)?.length > 0; else noproducts">
+      <p>
+        Product selected: {{ product.selectedOptions.selected[0]?.value.name }}
+      </p>
+
+      <mat-selection-list #product [multiple]="false">
+        <mat-list-option
+          *ngFor="let product of products$ | async"
+          [value]="product"
+        >
+          {{ product.name }} | {{ product.price }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #noproducts>
+  <mat-card>No Product found!</mat-card>
+</ng-template>
