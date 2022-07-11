@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="E-mail"
+            autocomplete="email"
+            readonly="false"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+            autocomplete="password"
+          />
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          <mat-icon>check</mat-icon>
+          Login
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

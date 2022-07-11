@@ -1,1 +1,141 @@
-<p>register works!</p>
+<div class="register-form">
+  <form role="form" [formGroup]="formRegister" (ngSubmit)="save()">
+    <mat-card class="card-form mat-elevation-z8">
+      <mat-card-title>Sign up</mat-card-title>
+
+      <mat-card-content class="content-card">
+        <div class="flexLayout">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="firstname"
+              autocomplete="firstname"
+              placeholder="First Name"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="lastname"
+              autocomplete="lastname"
+              placeholder="Last Name"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="flexLayout">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="address"
+              autocomplete="address"
+              placeholder="Address"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="flexLayout">
+          <mat-form-field>
+            <mat-select
+              matNativeControl
+              placeholder="City"
+              formControlName="city"
+            >
+              <mat-option *ngFor="let city of states" [value]="city.label">
+                {{ city.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select
+              matNativeControl
+              placeholder="State"
+              formControlName="state"
+            >
+              <mat-option *ngFor="let state of states" [value]="state.value">
+                {{ state.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flexLayout">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="phone"
+              autocomplete="Phone"
+              placeholder="Phone"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="mobilephone"
+              autocomplete="mobilephone"
+              placeholder="Mobile Phone"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="flexLayout">
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              class="form-control"
+              value=""
+              autocomplete="email"
+              placeholder="E-mail"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="flexLayout">
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              formControlName="password1"
+              type="password"
+              autocomplete="off"
+            />
+            <mat-placeholder>
+              <mat-icon>lock</mat-icon> New password
+            </mat-placeholder>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              formControlName="password2"
+              class="form-control"
+              autocomplete="off"
+            />
+            <mat-placeholder>
+              <mat-icon>lock_outline</mat-icon> Password confirmation
+            </mat-placeholder>
+          </mat-form-field>
+        </div>
+
+        <div class="button">
+          <button
+            mat-button
+            color="primary"
+            type="submit"
+            [disabled]="!formRegister.valid"
+          >
+            <mat-icon>done</mat-icon>&nbsp;Register
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

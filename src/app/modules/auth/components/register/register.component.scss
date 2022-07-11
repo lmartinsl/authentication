@@ -1,0 +1,30 @@
+.flexLayout {
+  display: flex;
+  flex-direction: row;
+}
+
+.register-form {
+  display: flex;
+  justify-content: center;
+}
+
+.card-form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .content-card {
+    width: 100%;
+
+    mat-form-field {
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    .button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

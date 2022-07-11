@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public loginForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm();
+  }
+
+  private createForm(): void {
+
+    const { required } = Validators
+
+    this.loginForm = this.fb.group({
+      'email': [''],
+      'password': ['']
+    })
+  }
+
+  public onSubmit(): void {
+
   }
 
 }

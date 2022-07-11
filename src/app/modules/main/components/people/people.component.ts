@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { MainService } from './../../services/main.service';
+import { MainService } from '../../services/main.service';
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/interfaces/person';
 
