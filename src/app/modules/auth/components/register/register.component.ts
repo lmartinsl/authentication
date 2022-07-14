@@ -102,13 +102,15 @@ export class RegisterComponent implements OnInit {
           this.snackBar.open(
             'Successfuly registered. Use your credentials to sing in!',
             'OK',
-            { duration: 1000 }
+            { duration: 2000 }
           )
           this.router.navigateByUrl('/auth/login')
         },
         (err) => {
-          this.snackBar.open(err.error.message, 'OK', { duration: 1000 })
-          // TODO: Corrigir msg de error!
+
+          console.log(err)
+
+          this.snackBar.open(err.message, 'OK', { duration: 2000 })
         }
       )
   }
