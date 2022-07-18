@@ -2,7 +2,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-card class="mat-elevation-z8">
       <mat-card-title>Login</mat-card-title>
-      <mat-card-content>
+      <mat-card-content *ngIf="!loading">
         <mat-form-field>
           <input
             matInput
@@ -23,7 +23,7 @@
           />
         </mat-form-field>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions *ngIf="!loading">
         <button
           mat-button
           color="primary"
@@ -34,6 +34,7 @@
           Login
         </button>
       </mat-card-actions>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     </mat-card>
   </form>
 </div>

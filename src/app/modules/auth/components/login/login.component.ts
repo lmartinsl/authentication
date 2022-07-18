@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
 
+  public loading: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -38,7 +40,7 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     const credentials = this.loginForm.value
 
-    console.log(credentials)
+    this.loading = true
 
     this.authService.login(credentials)
       .subscribe(
@@ -46,10 +48,12 @@ export class LoginComponent implements OnInit {
           console.log(user)
           this.snackBar.open(`Logged in successfuly. Welcome, ${user.firstname}!`, 'OK!', { duration: 2000 })
           this.router.navigateByUrl('/')
+          this.loading = false
         },
         (err) => {
           console.log(err)
           this.snackBar.open('Login Error.', 'Puts!', { duration: 2000 })
+          this.loading = false
         }
       )
   }
